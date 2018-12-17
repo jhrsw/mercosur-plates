@@ -7,7 +7,7 @@ data = open(dicionario, encoding="utf8").readlines()
 for i in range(len(data)):
     data[i] = chopchopextra(data[i])
 
-guardar = chopchopsete(data)
+guardar = chopchopleet(chopchopsete(data))
 
 for i in range(len(data)):
     data[i] = chopchopacentos(data[i])
