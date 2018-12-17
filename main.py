@@ -7,6 +7,8 @@ data = open(dicionario, encoding="utf8").readlines()
 for i in range(len(data)):
     data[i] = chopchopextra(data[i])
 
+guardar = chopchopsete(data)
+
 for i in range(len(data)):
     data[i] = chopchopacentos(data[i])
 
@@ -22,6 +24,10 @@ for word in leet:
 
 save = open("placas.txt", "w")
 
-
 for word in leet:
     save.write(word+'\n')
+
+originais = open("originais.txt", "w", encoding="utf-8")
+
+for word in guardar:
+    originais.write(word+'\n')
