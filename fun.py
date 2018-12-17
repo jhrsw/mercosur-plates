@@ -29,7 +29,7 @@ def chopchopacentos(string):
 # 9 - (Q), G
 # 0 - O
 
-letras = set('IÍÌZEAÁÃÀSBTBQOÓÕÒ')
+letras = set('IÍÌZEAÁÃÀÂSBTBQOÓÕÒÔ')
 
 def chopchopleet(dic):
     return [word for word in dic if any(i in word[3] for i in letras) and any(i in word[5] for i in letras) and any(i in word[6] for i in letras)]
