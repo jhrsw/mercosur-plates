@@ -35,13 +35,13 @@ function preload() {
 }
 
 function setup() {
-  bgcolor = color(206, 186, 255);
+  bgcolor = color(247, 249, 249);
   createCanvas(w, h);
   //background(176, 142, 255);
   background(bgcolor);
 
   // Creates randomize button
-  buttonNew = createButton('Placa aleatória');
+  buttonNew = createButton('Aleatorizar!');
   //buttonNew.position(19, 19);
   buttonNew.class('new');
   buttonNew.mousePressed(writeWord);
@@ -61,17 +61,15 @@ function setup() {
 }
 
 function draw() {
-  if(iterator == 0){
+  if (iterator == 0) {
     buttonForward.attribute('disabled', 'true');
-  }
-  else{
+  } else {
     buttonForward.removeAttribute('disabled');
   }
 
-  if(iterator == generatedPlates.length-1){
+  if (iterator == generatedPlates.length - 1) {
     buttonBack.attribute('disabled', 'true');
-  }
-  else{
+  } else {
     buttonBack.removeAttribute('disabled');
   }
 }

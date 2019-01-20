@@ -4,8 +4,8 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: #cebaff;
-  text-align:center;
+  background-color: #F7F9F9;
+  text-align: center;
 }
 
 canvas {
@@ -15,43 +15,44 @@ canvas {
 
 button {
   display: block;
-  margin: auto auto 10px auto;
-  /*padding: 10px;
+  margin: auto;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  transition: 0.3s;
+  background-size: 200% auto;
+  color: #FFFFFF;
   border: none;
-  border-radius: 2px;*/
-  font-family: 'Aleo', serif;
-  background-color: #604dcc;
-	color: white;
-	padding: 12px;
-	border: solid thin #10006b;
-	border-radius: 2px;
-	/*-webkit-transition-duration: 0.4s; /* Safari 
-    transition-duration: 0.4s;*/
+  border-radius: 5px;
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+  padding: 5px 15px;
+  margin-bottom: 10px;
 }
 
-button:hover{
-  background-color: #907dff; 
-  border: solid thin #10006b;
-  color: #0b006b;
+button:active {
+  background-position: right center;
 }
 
-button:active{
-  color: #0b006b;
-  background-color: #6355b1; 
-  border: solid thin #10006b;
-}
-
-button:disabled{
-  background-color:#d6d6d6;
-  color:#7c7c7c;
-  border: solid thin #505050;
-}
-
-button.new{
+.new {
   font-size: 20pt;
+  padding: 10px 30px;
 }
 
-button.navigation{
-  display:inline;
-  margin-right: 10px;
+.navigation {
+  display: inline;
+  margin: auto 10px;
+  background: #fda085;
+  font-size: 12pt;
+}
+
+.navigation:active {
+  background: #f6d365;
+}
+
+button:disabled {
+  background-image: linear-gradient(135deg, #969696, #636363);
+}
+
+button:disabled:active {
+  background: linear-gradient(135deg, #969696, #636363);
 }
