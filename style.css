@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Aleo');
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #cebaff;
+  text-align:center;
+}
+
+canvas {
+  display: block;
+  margin: auto;
+}
+
+button {
+  display: block;
+  margin: auto auto 10px auto;
+  /*padding: 10px;
+  border: none;
+  border-radius: 2px;*/
+  font-family: 'Aleo', serif;
+  background-color: #604dcc;
+	color: white;
+	padding: 12px;
+	border: solid thin #10006b;
+	border-radius: 2px;
+	/*-webkit-transition-duration: 0.4s; /* Safari 
+    transition-duration: 0.4s;*/
+}
+
+button:hover{
+  background-color: #907dff; 
+  border: solid thin #10006b;
+  color: #0b006b;
+}
+
+button:active{
+  color: #0b006b;
+  background-color: #6355b1; 
+  border: solid thin #10006b;
+}
+
+button:disabled{
+  background-color:#d6d6d6;
+  color:#7c7c7c;
+  border: solid thin #505050;
+}
+
+button.new{
+  font-size: 20pt;
+}
+
+button.navigation{
+  display:inline;
+  margin-right: 10px;
+}
