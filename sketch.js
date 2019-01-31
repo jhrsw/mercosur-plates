@@ -4,12 +4,6 @@ let fontPlaca;
 let placas;
 let originais;
 
-let w = 800;
-let h = 400;
-
-let base = w / 3 * 2;
-let altura = h / 2;
-
 let bgcolor;
 
 let generatedPlates = [];
@@ -36,8 +30,8 @@ function preload() {
 
 function setup() {
   bgcolor = color(247, 249, 249);
-  createCanvas(w, h);
-  //background(176, 142, 255);
+
+  createCanvas(800, 400);
   background(bgcolor);
 
   // Creates randomize button
@@ -75,7 +69,6 @@ function draw() {
 }
 
 function drawPlate() {
-
   background(bgcolor);
 
   // Draws white & black outline
@@ -83,12 +76,12 @@ function drawPlate() {
   strokeWeight(4);
   stroke(255);
   fill(0);
-  rect(width / 2 - base * 0.98 / 2, height / 2 - altura * 0.97 / 2, base * 0.98, altura * 0.97, 15);
+  rect(width / 2 - 266.6 * 0.98, height / 2 - 97, 533.3 * 0.98, 194, 15);
 
   // Draws blue rectangle
   noStroke();
   fill(0, 100, 255);
-  rect(width / 2 - base * 0.95 / 2, height / 2 - altura * 0.89 / 2, base * 0.95, altura * 0.25, 10, 10, 0, 0);
+  rect(width / 2 - 266.6 * 0.95, height / 2 - 89, 533.3 * 0.95, 50, 10, 10, 0, 0);
 
   // Draws Brazilian flag
   rectMode(CORNER);
@@ -146,7 +139,7 @@ function drawPlate() {
 
   // Draws white rectangle
   fill(255);
-  rect(width / 2 - base * 0.95 / 2, height / 2 - altura * 0.389 / 2, base * 0.95, altura * 0.64, 0, 0, 10, 10);
+  rect(width / 2 - 266.6 * 0.95, height / 2 - 38.9, 533.3 * 0.95, 128, 0, 0, 10, 10);
 
   // QR Code
   noSmooth();
@@ -177,6 +170,7 @@ function writeWord() {
   textFont(fontPlaca);
   textSize(100);
   text(plate, 417, 200, 500, 500);
+
   if (generatedPlates.unshift(plate) > 10) {
     generatedPlates.pop();
   }
@@ -185,6 +179,7 @@ function writeWord() {
   textFont('Helvetica');
   textSize(50);
   text(original, 400, 350, 500, 500);
+  
   if (generatedWords.unshift(original) > 10) {
     generatedWords.pop();
   }

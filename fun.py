@@ -1,23 +1,26 @@
+__all__ = ["clean_extra_characters", "find_seven_letter_words", "normalize_words", "find_leet_possibilities", "convert_to_leet"]
+
 from unicodedata import normalize
 
-def chopchopextra(string):
+def clean_extra_characters(string):
     if "/" in string:
-        resto = string.split('/', 1)[0]
+        clean = string.split('/', 1)[0]
     else:
-        resto = string.rstrip("\n")
+        clean = string.rstrip("\n")
 
-    return resto.upper()
+    return clean.upper()
 
 
-def chopchopsete(dic):
+def find_seven_letter_words(dic):
     return [word for word in dic if (len(word) == 7 and '-' not in word and '\'' not in word)]
 
 
-def chopchopacentos(string):
+def normalize_words(string):
     return normalize('NFKD', string).encode('ASCII', 'ignore').decode('ASCII')
 
 
-# Formato das palavras: AAA#A##
+# Word format: AAA#A##
+# Associations (chosen association is the one in parenthesis):
 # 1 - (I), L
 # 2 - Z
 # 3 - E
@@ -29,13 +32,13 @@ def chopchopacentos(string):
 # 9 - (Q), G
 # 0 - O
 
-letras = set('IÍÌÎZEÊÉÈAÁÃÀÂSBTBQOÓÕÒÔ')
+letters = set('IÍÌÎZEÊÉÈAÁÃÀÂSBTBQOÓÕÒÔ')
 
-def chopchopleet(dic):
-    return [word for word in dic if any(i in word[3] for i in letras) and any(i in word[5] for i in letras) and any(i in word[6] for i in letras)]
+def find_leet_possibilities(dic):
+    return [word for word in dic if any(i in word[3] for i in letters) and any(i in word[5] for i in letters) and any(i in word[6] for i in letters)]
 
 
-correspondentes = {
+associations = {
     'I':'1',
     'Z':'2',
     'E':'3',
@@ -49,11 +52,11 @@ correspondentes = {
 }
 
 
-def final(string):
-    lista = list(string)
-    lista[3] = correspondentes.get(string[3])
-    lista[5] = correspondentes.get(string[5])
-    lista[6] = correspondentes.get(string[6])
+def convert_to_leet(string):
+    word = list(string)
+    word[3] = associations.get(string[3])
+    word[5] = associations.get(string[5])
+    word[6] = associations.get(string[6])
 
-    return ''.join(lista)
+    return ''.join(word)
 

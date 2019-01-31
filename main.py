@@ -1,23 +1,23 @@
 from fun import *
 
-dicionario = "data\pt-BR.dic"
+dictionary = r"data\pt-BR.dic"
 
-data = open(dicionario, encoding="utf8").readlines()
-
-for i in range(len(data)):
-    data[i] = chopchopextra(data[i])
-
-guardar = chopchopleet(chopchopsete(data))
+data = open(dictionary, encoding="utf8").readlines()
 
 for i in range(len(data)):
-    data[i] = chopchopacentos(data[i])
+    data[i] = clean_extra_characters(data[i])
 
-seteletras = chopchopsete(data)
+guardar = find_leet_possibilities(find_seven_letter_words(data))
 
-leet = chopchopleet(seteletras)
+for i in range(len(data)):
+    data[i] = normalize_words(data[i])
+
+seteletras = find_seven_letter_words(data)
+
+leet = find_leet_possibilities(seteletras)
 
 for i in range(len(leet)):
-    leet[i] = final(leet[i])
+    leet[i] = convert_to_leet(leet[i])
 
 for word in leet:
     print(word)
