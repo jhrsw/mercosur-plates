@@ -7,20 +7,15 @@ data = open(dictionary, encoding="utf8").readlines()
 for i in range(len(data)):
     data[i] = clean_extra_characters(data[i])
 
-guardar = find_leet_possibilities(find_seven_letter_words(data))
-
 for i in range(len(data)):
     data[i] = normalize_words(data[i])
 
-seteletras = find_seven_letter_words(data)
+guardar = find_leet_possibilities(find_seven_letter_words(data))
 
-leet = find_leet_possibilities(seteletras)
+leet = find_leet_possibilities(find_seven_letter_words(data))
 
 for i in range(len(leet)):
     leet[i] = convert_to_leet(leet[i])
-
-for word in leet:
-    print(word)
 
 save = open("placas.txt", "w")
 
@@ -31,3 +26,6 @@ originais = open("originais.txt", "w", encoding="utf-8")
 
 for word in guardar:
     originais.write(word+'\n')
+
+for word in leet:
+    print(word)

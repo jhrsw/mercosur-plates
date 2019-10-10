@@ -1,42 +1,18 @@
-__all__ = ["clean_extra_characters", "find_seven_letter_words", "normalize_words", "find_leet_possibilities", "convert_to_leet"]
-
 from unicodedata import normalize
 
-def clean_extra_characters(string):
-    if "/" in string:
-        clean = string.split('/', 1)[0]
-    else:
-        clean = string.rstrip("\n")
-
-    return clean.upper()
-
-
-def find_seven_letter_words(dic):
-    return [word for word in dic if (len(word) == 7 and '-' not in word and '\'' not in word)]
-
-
-def normalize_words(string):
-    return normalize('NFKD', string).encode('ASCII', 'ignore').decode('ASCII')
-
-
-# Word format: AAA#A##
-# Associations (chosen association is the one in parenthesis):
-# 1 - (I), L
-# 2 - Z
-# 3 - E
-# 4 - (A), H
-# 5 - S
-# 6 - B, (G)
-# 7 - (T), J
-# 8 - B
-# 9 - (Q), G
-# 0 - O
-
-letters = set('IÍÌÎZEÊÉÈAÁÃÀÂSBTBQOÓÕÒÔ')
-
-def find_leet_possibilities(dic):
-    return [word for word in dic if any(i in word[3] for i in letters) and any(i in word[5] for i in letters) and any(i in word[6] for i in letters)]
-
+"""Word format: AAA#A##
+Associations
+1 - I (L should also be possible)
+2 - Z
+3 - E
+4 - A (H should also be possible)
+5 - S
+6 - G (B should also be possible)
+7 - T (J should also be possible)
+8 - B
+9 - Q (G should also be possible)
+0 - O
+"""
 
 associations = {
     'I':'1',
@@ -51,6 +27,24 @@ associations = {
     'O':'0'
 }
 
+letters = sorted(set(x for x in associations))
+
+def clean_extra_characters(string):
+    if "/" in string:
+        clean = string.split('/', 1)[0]
+    else:
+        clean = string.rstrip("\n")
+
+    return clean.upper()
+
+def find_seven_letter_words(dic):
+    return [word for word in dic if (len(word) == 7 and '-' not in word and '\'' not in word)]
+
+def normalize_words(string):
+    return normalize('NFKD', string).encode('ASCII', 'ignore').decode('ASCII')
+
+def find_leet_possibilities(dic):
+    return [word for word in dic if any(i in word[3] for i in letters) and any(i in word[5] for i in letters) and any(i in word[6] for i in letters)]
 
 def convert_to_leet(string):
     word = list(string)
