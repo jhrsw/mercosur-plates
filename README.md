@@ -1,11 +1,12 @@
-# Palavras em Placas
-Encontrar as possíveis palavras que encaixam no padrão de placas Mercosul.
+# Mercosur Plates
+Interactive visualization of Brazilian Portuguese words which fit in Mercosur's registration plates. The words generator code is written in Python 3 and for the visualization I utilized p5.js.
 
-## Modelo
-As placas possuem um modelo que mistura quatro letras e três algarismos, em detrimento das placas já utilizadas no Brasil.
-Seu formato é '@@@#@##', onde @ vai de A-Z e # de 0-9.
+## Model
+The plates have a model which mixes four letters and three numbers. It is the official implemented system as of January 31, 2020.
+Their format is '@@@#@##', where @ stands for A-Z characters and # for 0-9 digits.
+Regex equivalent: /[A-Z]{3}\d[A-Z]\d{2}/
 
-## Correspondências letras-números
+## Equivalences
 0 = O
 
 1 = I
