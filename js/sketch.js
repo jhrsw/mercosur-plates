@@ -18,14 +18,14 @@ let buttonBack;
 let buttonForward;
 
 function preload() {
-  fontBR = loadFont('assets/NotoSansKR-Black.otf');
-  fontPlaca = loadFont('assets/Oswald-SemiBold.ttf');
+  fontBR = loadFont('../fonts/NotoSansKR-Black.otf');
+  fontPlaca = loadFont('../fonts/Oswald-SemiBold.ttf');
 
   // Plates based on a Python program-generated .txt files
-  placas = loadStrings('placas.txt');
-  originais = loadStrings('originais.txt');
+  placas = loadStrings('../data/plates/pt-BR-plates.txt');
+  originais = loadStrings('../data/plates/pt-BR-words.txt');
 
-  img = loadImage('assets/qr.gif');
+  img = loadImage('../img/qr.gif');
 }
 
 function setup() {
