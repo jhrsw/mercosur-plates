@@ -4,7 +4,7 @@ Interactive visualization of Brazilian Portuguese words which fit in Mercosur's 
 ## Model
 The plates have a model which mixes four letters and three numbers. It is the official implemented system as of January 31, 2020.
 Their format is '@@@#@##', where @ stands for A-Z characters and # for 0-9 digits.
-Regex equivalent: /[A-Z]{3}\d[A-Z]\d{2}/
+Regex equivalent: [A-Z]{3}\d[A-Z]\d{2}
 
 ## Equivalences
 0 = O
