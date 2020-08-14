@@ -1,4 +1,4 @@
-const { dictionaryToJSON } = require('./src/fileHandler');
+const { dictionaryToJSON } = require('./fileHandler');
 
 const LANGUAGE = 'pt-BR';
 const DICTIONARY_PATH = `./data/dic/${LANGUAGE}.dic`;
