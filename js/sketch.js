@@ -1,8 +1,7 @@
-let fontBR;
-let fontPlaca;
+let BRFont;
+let plateFont;
 
-let placas;
-let originais;
+let plates;
 
 let bgcolor;
 
@@ -18,12 +17,10 @@ let buttonBack;
 let buttonForward;
 
 function preload() {
-  fontBR = loadFont('fonts/NotoSansKR-Black.otf');
-  fontPlaca = loadFont('fonts/Oswald-SemiBold.ttf');
+  BRFont = loadFont('fonts/NotoSansKR-Black.otf');
+  plateFont = loadFont('fonts/Oswald-SemiBold.ttf');
 
-  // Plates based on a Python program-generated .txt files
-  placas = loadStrings('data/plates/pt-BR-plates.txt');
-  originais = loadStrings('data/plates/pt-BR-words.txt');
+  plates = loadJSON('data/plates/pt-BR.json');
 
   img = loadImage('img/qr.gif');
 }
@@ -117,14 +114,14 @@ function drawPlate() {
   fill(255);
   textStyle(BOLD);
   textSize(24);
-  textFont(fontBR);
+  textFont(BRFont);
   text('BRASIL', 400, 130, 100, 200);
 
   // 'Mercosul' writings
   fill(255);
   textStyle(NORMAL);
   textSize(12);
-  textFont(fontBR);
+  textFont(BRFont);
   text('MERCOSUL', 200, 148, 100, 200);
   rectMode(CORNER);
   noFill();
@@ -151,15 +148,15 @@ function drawPlate() {
   noStroke();
   rectMode(CENTER);
   fill(0);
-  textFont(fontPlaca);
+  textFont(plateFont);
   textSize(40);
   text('BR', 178, 258, 500, 500);
 }
 
 function writeWord() {
-  let randomNumber = Math.trunc(random(0, placas.length));
-  let plate = placas[randomNumber];
-  let original = originais[randomNumber];
+  let randomNumber = Math.trunc(random(0, Object.keys(plates).length));
+  let plate = Object.keys(plates)[randomNumber];
+  let original = plates[randomNumber];
 
   // Redraws plate
   drawPlate();
@@ -167,7 +164,7 @@ function writeWord() {
   // Plate word with numbers
   rectMode(CENTER);
   fill(0);
-  textFont(fontPlaca);
+  textFont(plateFont);
   textSize(100);
   text(plate, 417, 200, 500, 500);
 
@@ -196,7 +193,7 @@ function back() {
     // Plate word with numbers
     rectMode(CENTER);
     fill(0);
-    textFont(fontPlaca);
+    textFont(plateFont);
     textSize(100);
     text(generatedPlates[iterator], 417, 200, 500, 500);
 
@@ -216,7 +213,7 @@ function forward() {
     // Plate word with numbers
     rectMode(CENTER);
     fill(0);
-    textFont(fontPlaca);
+    textFont(plateFont);
     textSize(100);
     text(generatedPlates[iterator], 417, 200, 500, 500);
 
