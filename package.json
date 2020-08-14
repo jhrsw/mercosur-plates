@@ -1,0 +1,24 @@
+{
+  "name": "mercosur-plates",
+  "version": "1.0.0",
+  "description": "Interactive visualization of Brazilian Portuguese words which fit in Mercosur's registration plates.",
+  "main": "./js/main.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node ./js/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaohira/mercosur-plates.git"
+  },
+  "keywords": ["mercosur", "p5", "p5js"],
+  "author": "João Hirasawa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joaohira/mercosur-plates/issues"
+  },
+  "homepage": "https://github.com/joaohira/mercosur-plates#readme"
+}
