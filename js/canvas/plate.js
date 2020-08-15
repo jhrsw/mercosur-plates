@@ -1,3 +1,30 @@
+function writeWord(plate, original) {
+  rectMode(CENTER);
+  fill(0);
+  textFont(plateFont);
+  textSize(100);
+  text(plate, 417, 200, 500, 500);
+
+  textFont('Helvetica');
+  textSize(50);
+  text(original, 400, 350, 500, 500);
+}
+
+function star(x, y, radius1, radius2, npoints) {
+  let angle = TWO_PI / npoints;
+  let halfAngle = angle / 2.0;
+  beginShape();
+  for (let a = 0; a < TWO_PI; a += angle) {
+    let sx = x + cos(a) * radius2;
+    let sy = y + sin(a) * radius2;
+    vertex(sx, sy);
+    sx = x + cos(a + halfAngle) * radius1;
+    sy = y + sin(a + halfAngle) * radius1;
+    vertex(sx, sy);
+  }
+  endShape(CLOSE);
+}
+
 function drawPlate() {
   background(bgcolor);
 

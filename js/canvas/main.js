@@ -53,22 +53,6 @@ function draw() {
   }
 }
 
-function createRandomizeButton() {
-  randomizeButton = createButton('Aleatorizar!');
-  randomizeButton.class('randomize');
-  randomizeButton.mousePressed(randomizeAndShow);
-}
-
-function createNavButtons() {
-  backButton = createButton('Voltar');
-  backButton.class('navigation');
-  backButton.mousePressed(backAndShow);
-
-  forwardButton = createButton('Avançar');
-  forwardButton.class('navigation');
-  forwardButton.mousePressed(forwardAndShow);
-}
-
 function randomizeAndShow() {
   let randomNumber = Math.trunc(random(0, Object.keys(plates).length));
   let plate = Object.keys(plates)[randomNumber];
@@ -77,23 +61,13 @@ function randomizeAndShow() {
   drawPlate();
   writeWord(plate, original);
 
-  if(seenPlates.unshift({[plate]: original}) > SEEN_CACHE) {
+  if (seenPlates.unshift({
+      [plate]: original
+    }) > SEEN_CACHE) {
     seenPlates.pop();
   }
 
   iterator = 0;
-}
-
-function writeWord(plate, original) {
-  rectMode(CENTER);
-  fill(0);
-  textFont(plateFont);
-  textSize(100);
-  text(plate, 417, 200, 500, 500);
-
-  textFont('Helvetica');
-  textSize(50);
-  text(original, 400, 350, 500, 500);
 }
 
 function backAndShow() {
@@ -111,26 +85,11 @@ function backAndShow() {
 function forwardAndShow() {
   if (iterator > 0) {
     iterator--;
-    
+
     const plate = Object.keys(seenPlates[iterator])[0];
     const original = Object.values(seenPlates[iterator])[0];
-    
+
     drawPlate();
     writeWord(plate, original);
   }
-}
-
-function star(x, y, radius1, radius2, npoints) {
-  var angle = TWO_PI / npoints;
-  var halfAngle = angle / 2.0;
-  beginShape();
-  for (var a = 0; a < TWO_PI; a += angle) {
-    var sx = x + cos(a) * radius2;
-    var sy = y + sin(a) * radius2;
-    vertex(sx, sy);
-    sx = x + cos(a + halfAngle) * radius1;
-    sy = y + sin(a + halfAngle) * radius1;
-    vertex(sx, sy);
-  }
-  endShape(CLOSE);
 }
