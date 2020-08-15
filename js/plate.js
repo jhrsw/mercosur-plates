@@ -74,7 +74,7 @@ function drawPlate() {
   // QR Code
   noSmooth();
   tint(255, 160);
-  image(img, 155, 168);
+  image(QRCode, 155, 168);
 
   // BR
   smooth();
